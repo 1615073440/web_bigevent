@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/axios.js"></script>
+</head>
+<body>
+    <script>
+        // let url = 'http://www.liulongbin.top:3006/api/get';
+        // let parObj = {name:'zs',age:18,};
+        // axios.get(url,{params:parObj}).then(function(res){
+        //     let result = res.data;
+        //     console.log(result);
+        // })
+        //直接使用axios发起get请求
+        axios({
+            method:'GET',
+            url:'http://www.liulongbin.top:3006/api/get',
+            params:{// GET 参数要通过 params 属性提供
+                name:'zs',
+                age:18,
+            }
+        }).then(function(res){
+            let result = res.data;
+            console.log(result);
+        })
+
+    </script>
+</body>
+</html>

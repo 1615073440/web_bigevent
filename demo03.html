@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap.css"/>
+    <script type="text/javascript" src="lib/jquery.js"></script>
+</head>
+<body>
+    <!-- 添加 -->
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+              <h3 class="panel-title">添加新评论</h3>
+        </div>
+        <form class="panel-body" id="formAdd">
+              
+              <div class="input-group">
+                  <div class="input-group-addon">评论内容:</div>
+                  <input type="text" class="form-control" id="bookName" placeholder="请输入评论" name="content">
+              </div>
+              
+              <div class="input-group">
+                  <div class="input-group-addon">作者</div>
+                  <input type="text" class="form-control" id="author" placeholder="请输入作者" name="username">
+              </div>
+              <button class="btn btn-primary">添加</button>
+        </form>
+  </div>
+<!-- 评论列表 -->
+
+<ul class="list-group" id="cmt-list">
+    <li class="list-group-item">
+        <span class="badge" style="background:rgb(92, 129, 230);">评论时间：</span>
+        <span class="badge" style="background:rgb(218, 99, 99)">评论人：</span>
+        你好
+    </li>
+  
+</ul>
+
+</body>
+<script src="./js/demo03.js"></script>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let xhr = new XMLHttpRequest();
+    //调用open
+    xhr.open('POST','http://www.liulongbin.top:3006/api/addbook');
+    //设置content-Type属性
+    xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    xhr.send('bookname=水浒传&author=施耐庵&publisher=上海出版社');//调用send（）同时将数据以查询字符串的形式提交给服务器
+    // 监听事件
+    xhr.onreadystatechange = function(e){
+        if(xhr.status == 200 && xhr.readyState ==4){
+            console.log(xhr.responseText);
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/template-web.js"></script>
+    <script src="./lib/jquery.js"></script>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script type="text/html" id="tpl-user">
+    <h1>{{name}}-------  {{age}}</h1>
+    {{@ test}}
+   <div>
+       <!-- 判断 -->
+    {{if flag == 0}}
+    flag的值为0
+    {{else if flag === 1}}
+    flag的值为1
+    {{/if}}
+    </div>
+<!-- 循环 -->
+    <ul>
+        {{each hobby}}
+        <li>索引是：{{$index}}, 循环项是{{$value}}</li>
+        {{/each}}
+    </ul>
+    </script>
+
+    <script>
+        var data = { name: 'zhangsan', age: 18, test: '<h3>测试原文输出</h3>', flag: 1,hobby:['吃饭','睡觉','打游戏'], }
+        var htmlStr = template('tpl-user', data)
+
+        template('tpl-user', data)
+        $('#container').html(htmlStr);
+    </script>
+</body>
+
+</html>

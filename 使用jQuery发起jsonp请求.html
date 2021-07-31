@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery.js"></script>
+</head>
+<body>
+    <script>
+        // $(function(){
+        //     $.ajax({
+        //         url:'http://ajax.frontend.itheima.net:3006/api/jsonp?name=zx&age=18',
+        //         dataType:'jsonp',
+        //         success:function(res){
+        //             console.log(res);
+        //         }
+        //     })
+        // })
+        //自定义参数以及回调函数名称
+        $(function(){
+            $.ajax({
+                url:'http://ajax.frontend.itheima.net:3006/api/jsonp?name=zx&age=18',
+                // 我们要请求的函数
+                dataType:'jsonp',
+                //发送到服务器参数的名称，默认值为callback
+                jsonp:'back',
+                // 自定义的回调函数名称，默认值为jQueryxxx格式
+                jsonpCallback:'success',
+                success:function(res){
+                    console.log(res);
+                }
+            })
+        })
+    </script>
+</body>
+</html>

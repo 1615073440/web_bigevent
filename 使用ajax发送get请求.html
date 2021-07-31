@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="lib/jquery.js"></script>
+	</head>
+	<body>
+		<button type="button">发起get请求</button>
+	</body>
+	<script type="text/javascript">
+		$(function(){
+			$('button').click(function(){
+				$.ajax({
+					type:'GET',
+					url:'http://www.liulongbin.top:3006/api/getbooks',
+					data:{ id:1},
+					success:function(res){
+						console.log(res);
+					}
+				})
+			})
+		})
+	</script>
+</html>

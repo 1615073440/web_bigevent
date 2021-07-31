@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="file" id="file1"/>
+    <button id="myBtn">上传文件</button>
+    <img  src="" id="img" width="800px"/>
+</body>
+<script>
+    //获取上传文件的按钮
+    let btn = document.querySelector('#myBtn');
+    btn.addEventListener('click',function(){
+        let file1 = document.querySelector('file1').files;
+        if(file1.lenth <= 0){
+            return alert('请选择上传文件');
+        }
+        //上传后文件处理  
+        //将用户选择的文件,添加到formdata中
+        let fd = new FormData();
+        fd.append('avatar',file1[0]);
+
+        //监听文件上传进度
+        xhr.upload.onprogress =function (e){
+            if(e.lengthComputable){
+                //计算出上传的进度
+                //e.loaded 已传输的字节
+                //e.total 总字节
+                let res = Math.ceil((e.loaded/e.total)*100);
+                console.log(res);
+            }
+        }
+
+        //创建 xhr 对象
+        let xhr = new XMLHttpRequest();
+        // 2. 调用 open 函数，指定请求类型与URL地址。其中，请求类型必须为 POST
+        xhr.open('POST','http://www.liulongbin.top:3006/api/upload/avatar');
+        //发起请求
+        xhr.send(fd);
+
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState === 4 && xhr.status === 200){
+                let data = JSON.parse(xhr.responseText);
+                if(data.status === 200){//图片上传成功
+                    document.querySelector('#img').src =`http://www.liulongbin.top:3006/${data.url}`;
+                }else{
+                    console.log('图片上传失败'+data.message);
+                }
+            }
+        }
+
+    })
+</script>
+</html>

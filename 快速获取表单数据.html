@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery.js"></script>
+
+</head>
+
+<body>
+    <form action="" method="get" id="form1">
+        <input type="text" name="user_name" id="">
+        <input type="password" name="password">
+        <button type="submit">提交</button>
+    </form>
+</body>
+<script>
+    $(function () {
+        $('#form1').submit(function (e) {
+            //alert('监听到表单提交了');
+            e.preventDefault();//阻止表单的提交和页面的跳转
+           let data = $(this).serialize();//能一次性获取到所有form中的数据,但必须为每个表单添加name属性
+           console.log(data);
+        })
+    })
+</script>
+
+</html>
